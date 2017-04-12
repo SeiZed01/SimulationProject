@@ -10,7 +10,7 @@ public:
     Animal* a;
     int lastEaten;
     int x, y;
-    Cells(){a = NULL; lastEaten = 0; int x = y = 0;
+    Cells(){a = NULL; lastEaten = 0;}
     ~Cell();
 };
 #endif
