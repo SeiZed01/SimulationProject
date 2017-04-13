@@ -14,7 +14,7 @@ class Animal : public World{
         void setHunger(bool k){hunger = k;}
         bool getHunger(){return hunger;}
         void Run(); // Implement death and hunger and etc in Run Func.
-        virtual void* Eat(); // Find something to eat within certain parameter then delete pointer. 
+        //virtual void* Eat(); // Find something to eat within certain parameter then delete pointer. 
         virtual void doublePopulation();
         ~Animal();
 };
