@@ -5,7 +5,7 @@
 #include <iostream>
 using namespace std;
 
-class Cells {
+class Cells : public World{
 public:
     Animal* a;
     int lastEaten; // Use to keep track of the days for grass growth? Maybe set to 10 and when it gets eaten change to 0 then increase 
