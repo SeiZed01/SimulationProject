@@ -11,6 +11,7 @@ class ActiveRabbit : public Animal{
         ActiveRabbit(int k, bool hunger,  priority_queue<World*, vector<World*>, compareItem >* q1): World(k), Animal(hunger), q(q1){}
         void* Eat(); // Still thinking
         void Run(); //This will do something
+        void doublePopulation();
         ~ActiveRabbit();
 };
 
@@ -20,6 +21,7 @@ class LazyRabbit : public Animal{
         LazyRabbit(int k, bool hunger, priority_queue<World*, vector<World*>, compareItem >* q1): World(k), Animal(hunger), q(q1){}
         void* Eat(); // Still thinking
         void Run(); // This will do something
+        void doublePopulation();
         ~LazyRabbit();
 };
 
