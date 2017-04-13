@@ -11,7 +11,7 @@ public:
     int lastEaten; // Use to keep track of the days for grass growth? Maybe set to 10 and when it gets eaten change to 0 then increase 
     // Until 10 again. Only able to eat if lastEaten is 10.
     int x, y;
-    Cells(){a = NULL; lastEaten = 10;}
+    Cells(): World(400), lastEaten = 10{} // probably rand 400-450 so change that later
     ~Cell();
 };
 #endif
