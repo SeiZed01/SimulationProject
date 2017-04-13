@@ -8,7 +8,7 @@ using namespace std;
 class Cells {
 public:
     Animal* a;
-    int lastEaten;
+    int lastEaten; // Use to keep track of the days for grass growth?
     int x, y;
     Cells(){a = NULL; lastEaten = 0;}
     ~Cell();
