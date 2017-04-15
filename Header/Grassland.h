@@ -25,8 +25,13 @@ class Grassland : public World{
        //Rabbit* getRabbitClose(int x, int y);
         //void grow(); 
         //void eatGrass(int x, int y, Rabbit*);
-        virtual void Run(){cout << "In Grassland " << getDay() << endl;
-            setDay(getDay() + 25); /*q->push(this)*/;}
+        virtual void Run(){
+            if(getDay() <= 10000){
+                cout << "In Grassland " << getDay() << endl;
+                setDay(getDay() + 450);
+                q->push(this);
+            }
+        }
         ~Grassland(){delete cell;}
 };
 #endif
