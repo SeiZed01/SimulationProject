@@ -1,5 +1,5 @@
 #include "Grassland.h"
-#include <random>
+#include <stdlib.h>
 #include <iostream>
 using namespace std;
 
@@ -53,5 +53,5 @@ void Grassland::addAnimals(int xWolf, int yRabbits){
     addWolf(xWolf);
     int ar = yRabbits / 2;
     int lr = yRabbits / 2;
-    addRabbits(ar, lr);
+    addRabbit(ar, lr);
 }
