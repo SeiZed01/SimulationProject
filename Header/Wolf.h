@@ -11,7 +11,7 @@ class Wolf : public Animal{
         //void doublePopulation();
        // void* Eat(); // Might change Eat to Roam for all
         void Run(){
-            if(getDay() <= 100){
+            if(getDay() <= 1000){
                 cout << "I am a Wolf : " << getDay() << endl;
                 setDay(getDay() + 4);
                 q->push(this);
