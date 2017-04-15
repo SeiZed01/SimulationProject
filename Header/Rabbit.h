@@ -6,23 +6,20 @@
 using namespace std;
 
 class ActiveRabbit : public Animal{
-    priority_queue<World*, vector<World*>, compareItem >* q;
     public:
-        ActiveRabbit(int k, bool hunger,  priority_queue<World*, vector<World*>, compareItem >* q1): World(k), Animal(hunger), q(q1){}
+        ActiveRabbit(int k, bool hunger,  priority_queue<World*, vector<World*>, compareItem >* q1): Animal(k, hunger, q1){}
         void* Eat(); // Still thinking
-        void Run(); //This will do something
-        void doublePopulation();
-        ~ActiveRabbit();
+        void Run(){cout << "This is an Active Rabbit: " << getDay() << endl;} //This will do something, gutta add more functionaly.. requeue, death etc..
+        ~ActiveRabbit(){}
 };
 
 class LazyRabbit : public Animal{
     priority_queue<World*, vector<World*>, compareItem >* q;
     public:
-        LazyRabbit(int k, bool hunger, priority_queue<World*, vector<World*>, compareItem >* q1): World(k), Animal(hunger), q(q1){}
-        void* Eat(); // Still thinking
-        void Run(); // This will do something
-        void doublePopulation();
-        ~LazyRabbit();
+        LazyRabbit(int k, bool hunger, priority_queue<World*, vector<World*>, compareItem >* q1): Animal(k, hunger, q1){}
+        //void* Eat(); // Still thinking
+        void Run(){cout << "This is a Lazy Rabbit: " << getDay() << endl;} // This will do something still have add more functions like requeue and etc
+        ~LazyRabbit(){}
 };
 
 #endif
