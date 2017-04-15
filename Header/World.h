@@ -9,7 +9,7 @@ class World{
         World(int day) : days(day){}
         friend class compareItem;
         int getDay(){return days;}
-        void setDay(int day){day = day;}
+        void setDay(int day){days = day;}
         virtual void Run();
         virtual ~World(){}
 
