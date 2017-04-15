@@ -6,11 +6,17 @@
 using namespace std;
 
 class Wolf : public Animal{
-    priority_queue<World*, vector<World*>, compareItem >* q;
     public:
-        Wolf(int k, bool hunger, priority_queue<World*, vector<World*>, compareItem >* q1): World(k), Animal(hunger), q(q1){}
-        void doublePopulation();
-        void* Eat(); // Might change Eat to Roam for all
-        void Run(); // Needs work
+        Wolf(int k, bool hunger, priority_queue<World*, vector<World*>, compareItem >* q1): Animal(k, hunger, q1){}
+        //void doublePopulation();
+       // void* Eat(); // Might change Eat to Roam for all
+        void Run(){
+            if(getDay() <= 100){
+                cout << "I am a Wolf : " << getDay() << endl;
+                setDay(getDay() + 4);
+                q->push(this);
+            }
+        } // Needs work
+        ~Wolf(){}
 };
 #endif
