@@ -4,6 +4,7 @@
 #include "World.h"
 #include "Animal.h"
 #include "Wolf.h"
+#include "Rabbit.h"
 #include "Cells.h"
 #include <iostream>
 #include <vector>
@@ -25,7 +26,7 @@ class Grassland : public World{
         //void grow(); 
         //void eatGrass(int x, int y, Rabbit*);
         virtual void Run(){cout << "In Grassland " << getDay() << endl;
-            setDay(getDay() + 25); q->push(this);}
+            setDay(getDay() + 25); /*q->push(this)*/;}
         ~Grassland(){delete cell;}
 };
 #endif
