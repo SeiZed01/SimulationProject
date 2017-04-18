@@ -2,11 +2,11 @@
 #ifndef WORLD_H_
 #define WORLD_H_
 
-class World{
+class World{ //base class, stems to animal and grassland
     int days;
     public:
-        World();
-        World(int day) : days(day){}
+        World(); 
+        World(int day) : days(day){} 
         friend class compareItem;
         int getDay(){return days;}
         void setDay(int day){days = day;}
