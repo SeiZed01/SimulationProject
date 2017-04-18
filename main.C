@@ -1,3 +1,7 @@
+//Hung Nguyen
+//Joseph Frazier
+//CSCE 240 Final Project
+//Simulation should run fine with Priority Queue.
 #include "World.h"
 #include "Grassland.h"
 #include <queue>
