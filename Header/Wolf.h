@@ -1,13 +1,11 @@
 #ifndef WOLF_H
 #define WOLF_H
-#include <iostream>
-#include <vector>
 #include "Animal.h"
 using namespace std;
 
 class Wolf : public Animal{
     public:
-        Wolf(int k, bool hunger, priority_queue<World*, vector<World*>, compareItem >* q1): Animal(k, hunger, q1){}
+        Wolf(int k, int i, bool hunger, priority_queue<World*, vector<World*>, compareItem >* q1, Grassland* t): Animal(k, i, hunger, q1, t){}
         //void doublePopulation();
        // void* Eat(); // Might change Eat to Roam for all
         void Run(){
