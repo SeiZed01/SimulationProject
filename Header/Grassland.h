@@ -2,12 +2,10 @@
 #define GRASSLAND_H
 
 #include "World.h"
-#include "Animal.h"
-#include "Wolf.h"
-#include "Rabbit.h"
 #include "Cells.h"
 #include <iostream>
 #include <vector>
+class Animal;
 using namespace std;
 
 class Grassland : public World{
@@ -23,10 +21,9 @@ class Grassland : public World{
         void addRabbit(int ar, int lr);
         void addAnimals(int x, int y);
        //Rabbit* getRabbitClose(int x, int y);
-        //void grow(); 
-        //void eatGrass(int x, int y, Rabbit*);
+        void eatGrass(int x, int y, Animal*);
         virtual void Run(){
-            if(getDay() <= 10000){
+            if(getDay() <= 1000){
                 cout << "In Grassland " << getDay() << endl;
                 setDay(getDay() + 450);
                 q->push(this);
