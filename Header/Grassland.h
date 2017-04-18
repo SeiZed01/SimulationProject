@@ -1,4 +1,3 @@
-#ifndef GRASSLAND_H
 #define GRASSLAND_H
 
 #include "World.h"
@@ -17,8 +16,9 @@ class Grassland : public World{
         for(int i = 0; i < 512; i++)
             cell[i] = new Cells[512];
         }
-        void addWolf(int xWolf);
-        void addRabbit(int ar, int lr);
+        bool roam(int x, int y); // Checks surround area to see if place is available to eat or just roam around.
+        void addWolf(int xWolf); // Helper Function to add animals
+        void addRabbit(int ar, int lr); // Helper function to add animals
         void addAnimals(int x, int y);
        //Rabbit* getRabbitClose(int x, int y);
         void eatGrass(int x, int y, Animal*);
