@@ -33,7 +33,7 @@ void Grassland::addRabbit(int ar, int lr){
             x = rand() % 512;
             y = rand() % 512;
         }
-        cell[x][y].a = new ActiveRabbit(2, 2,  false, q, this);
+        cell[x][y].a = new ActiveRabbit(2, 2,  true, q, this);
         q->push(cell[x][y].a);
         cell[x][y].x = x;
         cell[x][y].y = y;
@@ -41,7 +41,7 @@ void Grassland::addRabbit(int ar, int lr){
         cell[x][y].a->y = y;
 
     }
-    //Adding Lazy Rabbits Below
+  //Adding Lazy Rabbits Below
     x = rand() % 512;
     y = rand() % 512;
 
@@ -67,8 +67,12 @@ void Grassland::addAnimals(int xWolf, int yRabbits){
     addRabbit(ar, lr);
 }
 
+/*bool Grassland::roam(int x, int y, Animal){
+      
+}*/
+
 void Grassland::eatGrass(int x, int y, Animal* r){
-    if(r->getID() == 1){
+    if(r->getID() == 1){ // This is for Lazy Rabbit
         for(int i = max(0, x-5); i <= min(x+5, 511);i++){
             if(r->getHunger() == 0)
                 break;
@@ -80,7 +84,7 @@ void Grassland::eatGrass(int x, int y, Animal* r){
                         r->setHunger(0);
                         cell[i][j].a->x = i;
                         cell[i][j].a->y = j;
-                        cout << ", Grass eaten at: (" << i << "," << j << ")" << endl;
+                         cout << ", Grass eaten at: (" << i << "," << j << ")" << endl;
                         cell[x][y].a = NULL;
                         break;
                         }
@@ -88,3 +92,24 @@ void Grassland::eatGrass(int x, int y, Animal* r){
             }
         }
     }
+    if(r->getID() == 2){ // This is For Active Rabbit
+        for(int i = max(0, x-10); i<= min(x+10, 511);i++){
+            if(r->getHunger() == 0)
+                break;
+            for(int j = max(0, y-10); j<=min(y+10, 511);j++){
+                if(i != x || j != y){
+                    if(cell[i][j].lastEaten == 10){
+                        cell[i][j].a = r;
+                        cell[i][j].lastEaten = 0;
+                        r->setHunger(0);
+                        cell[i][j].a->x = i;
+                        cell[i][j].a->y = j;
+                        cout << ", Grass eaten at : (" << i << "," << j << ")" << endl;
+                        cell[x][y].a = NULL;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}
