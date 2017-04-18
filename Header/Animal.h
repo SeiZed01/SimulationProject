@@ -6,17 +6,16 @@
 using namespace std;
 
 class Animal : public World{
-    priority_queue<World*, vector<World*>, compareItem >* q;
     bool hunger;
     public:
-        Animal(bool k): hunger(k){}
-        Animal(int day, priority_queue<Item*, vector<Item*>, compareItem>* q1): World(day), q(q1){}
+        priority_queue<World*, vector<World*>, compareItem >* q;
+        Animal(int day, bool hunger, priority_queue<World*, vector<World*>, compareItem>* q1): World(day), hunger(hunger), q(q1){}
         void setHunger(bool k){hunger = k;}
         bool getHunger(){return hunger;}
-        void Run(); // Implement death and hunger and etc in Run Func.
+        virtual void Run(){} // Implement death and hunger and etc in Run Func.
         //virtual void* Eat(); // Find something to eat within certain parameter then delete pointer. 
-        virtual void doublePopulation();
-        ~Animal();
+       // virtual void doublePopulation();
+        virtual ~Animal(){}
 };
 
 #endif
