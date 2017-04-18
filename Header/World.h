@@ -1,4 +1,5 @@
 //Code for world header
+//Modified from Dr. Tang's Item.h
 #ifndef WORLD_H_
 #define WORLD_H_
 
