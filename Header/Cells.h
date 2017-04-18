@@ -4,12 +4,12 @@
 #include "Animal.h"
 #include <iostream>
 using namespace std;
-class Cells {
+class Cells { //Cell class, counts as a basic tile point
 public:
-    Animal* a;
-    int lastEaten;
+    Animal* a; //points to animal residing in tile
+    int lastEaten; 
     int x, y;
-    Cells(){lastEaten = 10; x = 0; y = 0; a = NULL;}
-    ~Cells(){}
+    Cells(){lastEaten = 10; x = 0; y = 0; a = NULL;} // basic constructor sets initial values
+    ~Cells(){} //basic deconstructor
 };
 #endif
