@@ -16,7 +16,7 @@ class ActiveRabbit : public Animal{ //Active rabbit inherits directly from anima
                 if(getDay() >= 750 && (result <= probability)){ //checks chance of death after day 750
                     hold->cell[this->x][this->y].a = NULL;
                     hold->rCount -= 1;
-                    delete this; // gets rid of the animal
+                    //delete this; // gets rid of the animal
                 }
                 cout << "Day: " << getDay() << ", This is an Active Rabbit at: (" << x << "," << y << ")";
                 if(hold->cell[this->x][this->y].a != NULL){
@@ -42,7 +42,7 @@ class LazyRabbit : public Animal{
                 if(getDay() == 450){ // death after 450 days
                     hold->cell[this->x][this->y].a = NULL;                    
                     hold->rCount -= 1;
-                    delete this;
+                   // delete this;
                 }
                 cout <<"Day: " << getDay() << ", This is a Lazy Rabbit at : (" << x << "," << y << ")";
                 if(hold->cell[this->x][this->y].a != NULL){                    
