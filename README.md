@@ -14,7 +14,7 @@ Read Me
 Instructions
 	
 	1. Run make prior to first usage.
-	2. Input ./Project7 $1 $2 (where $x is an integer)
+	2. Input ./Project7 $1 $2 (where $x is an integer) in the command line.
 	3. Program will run until fail.
 	
 Included
@@ -24,5 +24,4 @@ Included
 	
 Known Bugs
 
-	Fault at day 450 and 800-920 from rabbits and wolves causes segmentation
-	from unknown source.
+	
