@@ -9,3 +9,6 @@ main.o: main.C World.h Grassland.h
 
 Grassland.o: Animal.h Wolf.h Rabbit.h Cells.h Grassland.h Grassland.C
     $(CC) $(CCFLAG) -c Grassland.C
+
+clean:
+	rm -rf *.o
