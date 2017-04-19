@@ -14,14 +14,19 @@ class ActiveRabbit : public Animal{ //Active rabbit inherits directly from anima
                 double result = rand() / RAND_MAX;
                 if(getDay() >= 750 && (result < probability)){ //checks chance of death after day 750
                     hold->cell[this->x][this->y].a = NULL;
+                    delete this; // gets rid of the animal
                 }
                 cout << "Day: " << getDay() << ", This is an Active Rabbit at: (" << x << "," << y << ")";
-                setDay(getDay() + 2);
-                setHunger(1);
-                if(getHunger() == 1){ 
-                    hold->eatGrass(x, y, this);
+                if(hold->cell[this->x][this->y].a != NULL){
+                    setDay(getDay() + 2);
+                    setHunger(1);
+                    if(getHunger() == 1){ 
+                        hold->eatGrass(x, y, this);
+                    }
+                    q->push(this);
                 }
-                q->push(this);
+                else
+                    cout << " This rabbit has died today.." << endl;
             }
         } 
         ~ActiveRabbit(){}
@@ -34,14 +39,19 @@ class LazyRabbit : public Animal{
             if(getDay() <= 10000){
                 if(getDay() == 450){ // death after 450 days
                     hold->cell.a[this->x][this->y] = NULL;
-                }
+                    delete this;
+                }                
                 cout <<"Day: " << getDay() << ", This is a Lazy Rabbit at : (" << x << "," << y << ")";
-                setDay(getDay() + 1);
-                setHunger(1);
-                if(getHunger() == 1){
-                    hold->eatGrass(x, y, this);
+                if(hold->cell[this->x][this->y].a != NULL){
+                    setDay(getDay() + 1);
+                    setHunger(1);
+                    if(getHunger() == 1){
+                        hold->eatGrass(x, y, this);
+                    }
+                    q->push(this);
                 }
-                q->push(this);
+                else
+                    cout << " This rabbit has died today.." << endl;
             }
         }
 
