@@ -14,7 +14,7 @@ class Wolf : public Animal{ //wolf inherits from Animal
                 if(getDay() >= 800 && (result < probability)){ // 1% chance to die after 800 days
                     hold->cell[this->x][this->y].a = NULL;
                     hold->wCount -= 1;
-                    delete this;
+                    //delete this;
                 }
                 cout << "Day: " << getDay() << ", I am a Wolf at: (" << x << "," << y << ")";
                 if(hold->cell[this->x][this->y].a != NULL){
