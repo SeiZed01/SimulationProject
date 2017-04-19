@@ -8,7 +8,6 @@ using namespace std;
 class ActiveRabbit : public Animal{ //Active rabbit inherits directly from animal
     public:
         ActiveRabbit(int k,int i, bool hunger,  priority_queue<World*, vector<World*>, compareItem >* q1, Grassland* t): Animal(k, i, hunger, q1, t){}
-        //void* Eat(); // Still thinking
         void Run(){ //checks various conditions, hunger, death, etc
             if(getDay() <= 1000){
                 double probability = 0.05; // Probability of DEATH AFTER 750 Days
@@ -24,14 +23,13 @@ class ActiveRabbit : public Animal{ //Active rabbit inherits directly from anima
                 }
                 q->push(this);
             }
-        } //This will do something, gutta add more functionaly.. requeue, death etc..
+        } 
         ~ActiveRabbit(){}
 };
 
 class LazyRabbit : public Animal{
     public:
         LazyRabbit(int k,int i, bool hunger, priority_queue<World*, vector<World*>, compareItem >* q1, Grassland* t): Animal(k, i, hunger, q1, t){}
-        //void* Eat(); // Still thinking
         void Run(){ //checks various conditions, hunger, death, etc
             if(getDay() <= 10000){
                 if(getDay() == 450){ // death after 450 days
@@ -46,7 +44,7 @@ class LazyRabbit : public Animal{
                 q->push(this);
             }
         }
-        // This will do something still have add more functions like requeue and etc
+
         ~LazyRabbit(){}
 };
 
