@@ -25,6 +25,7 @@ class Grassland : public World{ //grassland class inherits from the world class
         void addAnimals(int x, int y); //Helper function to add animals
        //Rabbit* getRabbitClose(int x, int y);
         void eatGrass(int x, int y, Animal*);
+        void growGrass();
         virtual void Run(){
             if(getDay() <= 1000){
                 cout << "In Grassland " << getDay() << endl;
