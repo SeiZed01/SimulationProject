@@ -11,6 +11,8 @@ using namespace std;
 class Grassland : public World{ //grassland class inherits from the world class
     priority_queue<World*, vector<World*>, compareItem >* q;
     public:
+        int wCount = 0; // Wolf Counter
+        int rCount = 0; // Rabbit Counter
         Cells **cell; //pointer to create two dimensional array
         Grassland(int day, priority_queue<World*, vector<World*>, compareItem >* q1): World(day), q(q1){
         cell = new Cells*[512]; //creates the tile area
@@ -23,7 +25,7 @@ class Grassland : public World{ //grassland class inherits from the world class
         void addAnimals(int x, int y); //Helper function to add animals
        //Rabbit* getRabbitClose(int x, int y);
         void eatGrass(int x, int y, Animal*);
-        virtual void Run(){ 
+        virtual void Run(){
             if(getDay() <= 1000){
                 cout << "In Grassland " << getDay() << endl;
                 setDay(getDay() + 450);
