@@ -39,6 +39,7 @@ class LazyRabbit : public Animal{
         LazyRabbit(int k,int i, bool hunger, priority_queue<World*, vector<World*>, compareItem >* q1, Grassland* t): Animal(k, i, hunger, q1, t){}
         void Run(){ //checks various conditions, hunger, death, etc            
             if(getDay() <= 10000){
+                hold->growGrass();
                 if(getDay() == 450){ // death after 450 days
                     hold->cell[this->x][this->y].a = NULL;                    
                     hold->rCount -= 1;
