@@ -9,17 +9,18 @@ using namespace std;
 void Grassland::addWolf(int xWolf){ //adds wolves based on number of argument xWolf
     int x = rand() % 512; //creates x coordinate
     int y = rand() % 512; //creates y coordinate
-    for(int i = 0; i < xWolf; i++){ 
+    for(int i = 0; i < xWolf; i++){
         while(cell[x][y].a != NULL){ //if cell is currently occupied coordinates are rerolled
             x = rand() % 512;
             y = rand() % 512;
         }
         cell[x][y].a = new Wolf(4, 4, false, q, this); //creates wolf at open coordinates
+        wCount += 1;
         q->push(cell[x][y].a);
         //sets cell coordinates and stores them in cell and animal
-        cell[x][y].x = x; 
+        cell[x][y].x = x;
         cell[x][y].y = y;
-        cell[x][y].a->x = x; 
+        cell[x][y].a->x = x;
         cell[x][y].a->y = y;
     }
 }
@@ -29,17 +30,18 @@ void Grassland::addRabbit(int ar, int lr){ //takes in count of lazy and active r
     // Might need a counter to keep track so we can double
     int x = rand() % 512; //creates x coordinate
     int y = rand() % 512; //creates y coordinate
-    for(int i = 0; i < ar; i++){ 
+    for(int i = 0; i < ar; i++){
         while(cell[x][y].a != NULL){//rerolls coordinates if cell is occupied
             x = rand() % 512;
             y = rand() % 512;
         }
         cell[x][y].a = new ActiveRabbit(2, 2,  true, q, this); //creates active rabbit
+        rCount += 1;
         q->push(cell[x][y].a);
         //stores coordinates in cell and animal
         cell[x][y].x = x;
         cell[x][y].y = y;
-        cell[x][y].a->x = x;
+         cell[x][y].a->x = x;
         cell[x][y].a->y = y;
 
     }
@@ -53,6 +55,7 @@ void Grassland::addRabbit(int ar, int lr){ //takes in count of lazy and active r
             y = rand() % 512;
         }
         cell[x][y].a = new LazyRabbit(1, 1, true, q, this);//creates lazy rabbit
+        rCount += 1;
         q->push(cell[x][y].a);
         //stores coordinates in cell and animal
         cell[x][y].x = x;
@@ -80,7 +83,7 @@ void Grassland::eatGrass(int x, int y, Animal* r){ //function takes in coordinat
             if(r->getHunger() == 0) //if rabbit is not hungry, function ends
                 break;
             for(int j = max(0, y-5); j<= min(j+5, 511);j++){
-                if(i != x || j != y){ //checks if grass is available to be eaten
+  if(i != x || j != y){ //checks if grass is available to be eaten
                     if(cell[i][j].lastEaten == 10){
                         cell[i][j].a = r;
                         cell[i][j].lastEaten = 0;
