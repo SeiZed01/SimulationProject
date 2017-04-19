@@ -1,69 +1,40 @@
-#ifndef RABBIT_H
-#define RABBIT_H
+#ifndef GRASSLAND_H
+#define GRASSLAND_H
+
+#include "World.h"
+#include "Cells.h"
 #include <iostream>
 #include <vector>
-#include "Grassland.h"
-#include <stdlib.h>
-#include "Animal.h"
+class Animal;
 using namespace std;
-class ActiveRabbit : public Animal{ //Active rabbit inherits directly from animal
+
+class Grassland : public World{ //grassland class inherits from the world class
+    priority_queue<World*, vector<World*>, compareItem >* q;
     public:
-        ActiveRabbit(int k,int i, int hunger,  priority_queue<World*, vector<World*>, compareItem >* q1, Grassland* t): Animal(k, i, hunger, q1, t){}
-        void Run(){ //checks various conditions, hunger, death, etc
-            if(getDay() <= 10000){
-                cout <<"Day: " << getDay() << ", This is a Active Rabbit at : (" << x << "," << y << ")";
-                double probability = 0.05; // Probability of DEATH AFTER 750 Days
-                double result = (double)rand() / RAND_MAX;
-                if(getDay() >= 750 && (result <= probability)){ //checks chance of death after day 750
-                    hold->rCount -= 1;
-                    hold->cell[this->x][this->y].a = NULL;
-//                    delete this; // gets rid of the animal
-                }
-                if(hold->cell[this->x][this->y].a != NULL){
-                    setDay(getDay() + 2);
-                    if(getHunger() >= 0){
-                        hold->eatGrass(x, y, this);
-                        setHunger(0);
-                    }
-                    q->push(this);
-                }
-                else{
-                    cout << " This rabbit has died today.." << endl;
-                }
-            }
-            cout << endl;
+        int wCount = 0; // Wolf Counter
+        int rCount = 0; // Rabbit Counter
+        //void roam(int x, int y, Animal*); // Wolf roams if cant find food.
+        Cells **cell; //pointer to create two dimensional array
+        Grassland(int day, priority_queue<World*, vector<World*>, compareItem >* q1): World(day), q(q1){
+        cell = new Cells*[512]; //creates the tile area
+        for(int i = 0; i < 512; i++)
+            cell[i] = new Cells[512];
         }
-        ~ActiveRabbit(){}
-};
-
-class LazyRabbit : public Animal{
-    public:
-        LazyRabbit(int k,int i, int hunger, priority_queue<World*, vector<World*>, compareItem >* q1, Grassland* t): Animal(k, i, hunger, q1, t){}
-        void Run(){ //checks various conditions, hunger, death, etc
-            cout <<"Day: " << getDay() << ", This is a Lazy Rabbit at : (" << x << "," << y << ")";
+        void addWolf(int xWolf); // Helper Function to add animals
+        void addRabbit(int ar, int lr); // Helper function to add animals
+        void addAnimals(int x, int y); //Helper function to add animals
+        //void eatRabbit(int x, int y, Animal*);
+        void eatGrass(int x, int y, Animal*);
+        void growGrass(); // Grow grass each cell daily helper function
+        virtual void Run(){
             if(getDay() <= 10000){
-                hold->growGrass();
-                if(getDay() == 450){ // death after 450 days
-                    hold->rCount -= 1;
-                    hold->cell[this->x][this->y].a = NULL;
-                //    delete this;
-                }
-                if(hold->cell[this->x][this->y].a != NULL){
-                    setDay(getDay() + 1);
-                    if(getHunger() >= 0){
-                        hold->eatGrass(x, y, this);
-                        setHunger(0);
-                    }
-                    q->push(this);
-                }
-                else{
-                    cout << " This rabbit has died today.." << endl;
-                }
+                cout << "In Grassland " << getDay() << endl;
+                setDay(getDay() + 450);
+                q->push(this);
             }
-            cout << endl;
         }
-
-        ~LazyRabbit(){}
+        ~Grassland(){ // clean up cells
+            delete[] cell;
+        }
 };
-
 #endif
