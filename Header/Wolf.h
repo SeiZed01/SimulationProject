@@ -1,7 +1,7 @@
 #ifndef WOLF_H
 #define WOLF_H
 #include "Animal.h"
-#include "stdlib.h"
+#include <stdlib.h>
 using namespace std;
 
 class Wolf : public Animal{ //wolf inherits from Animal
