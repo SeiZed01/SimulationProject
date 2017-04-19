@@ -10,11 +10,12 @@
 using namespace std;
 
 int main(int argc, char* argv[]){ //main function takes in arguments for the number of wolves and rabbits
-    if(argc <= 2 || argc >=4) //error check message for improper variables.
+    if(argc <= 2 || argc >=4){ //error check message for improper variables.
         cout << "Invalid number of arguments in the terminal!" << endl;
         cout << "Please enter in two numbers separated by a space. First # is Wolf, Second is Rabbit" << endl;
+    }
     else{ //creates wolves based on the input arguments and runs
-        int wolf = atoi(argv[1]); 
+        int wolf = atoi(argv[1]);
         int rabbits = atoi(argv[2]);
         priority_queue<World*, vector<World*>, compareItem > pq; //creates priority queue
         Grassland* g1 = new Grassland(450, &pq); //grassland created with constructor that takes queue
@@ -25,6 +26,7 @@ int main(int argc, char* argv[]){ //main function takes in arguments for the num
             pq.pop();
             i->Run(); //runs the world items, either Grassland, Wolf, Active Rabbit, or Lazy rabbit
         }
+        cout << "There are: << " << g1->wCount << " Wolfs and " << g1->rCount << " Rabbits left" << endl;
         delete g1; //clean up
     }
 }
