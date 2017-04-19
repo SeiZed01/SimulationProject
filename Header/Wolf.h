@@ -10,9 +10,10 @@ class Wolf : public Animal{ //wolf inherits from Animal
         void Run(){ //checks hunger
             if(getDay() <= 10000){
                 double probability = 0.01;
-                double result = rand() / RAND_MAX;
+                double result = (double)rand() / RAND_MAX;
                 if(getDay() >= 800 && (result < probability)){ // 1% chance to die after 800 days
                     hold->cell[this->x][this->y].a = NULL;
+                    hold->wCount -= 1;
                     delete this;
                 }
                 cout << "Day: " << getDay() << ", I am a Wolf at: (" << x << "," << y << ")";
@@ -23,7 +24,8 @@ class Wolf : public Animal{ //wolf inherits from Animal
                 else
                     cout << " this Wolf has died today.. " << endl;
             }
-        } 
-        ~Wolf(){}
+            cout << endl;
+        }
+        ~Wolf(){delete this;}
 };
 #endif
