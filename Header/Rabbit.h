@@ -9,7 +9,7 @@ class ActiveRabbit : public Animal{ //Active rabbit inherits directly from anima
     public:
         ActiveRabbit(int k,int i, bool hunger,  priority_queue<World*, vector<World*>, compareItem >* q1, Grassland* t): Animal(k, i, hunger, q1, t){}
         void Run(){ //checks various conditions, hunger, death, etc
-            if(getDay() <= 1000){
+            if(getDay() <= 10000){
                 double probability = 0.05; // Probability of DEATH AFTER 750 Days
                 double result = rand() / RAND_MAX;
                 if(getDay() >= 750 && (result < probability)){ //checks chance of death after day 750
