@@ -1,9 +1,12 @@
 # SimulationProject
 Final Project of CSCE 240
+
 Hung Nguyen
 Joseph Frazier
+
 CSCE 240 Spring 2017
 Jijun Tang
+
 19 April 2017
 
 Read Me
