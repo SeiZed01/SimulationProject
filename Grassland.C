@@ -105,7 +105,7 @@ void Grassland::eatGrass(int x, int y, Animal* r){ //function takes in coordinat
                         break;
                         }
                     else
-                        r->setHunger(getHunger() + 1);
+                        r->setHunger(r->getHunger() + 1);
                 }
             }
         }
@@ -126,7 +126,7 @@ void Grassland::eatGrass(int x, int y, Animal* r){ //function takes in coordinat
                         break;
                     }
                     else
-                        r->setHunger(getHunger() + 1);
+                        r->setHunger(r->getHunger() + 1);
                 }
             }
         }
@@ -152,7 +152,7 @@ void Grassland::eatGrass(int x, int y, Animal* r){ //function takes in coordinat
                     break;
                 }
                 else
-                    r->setHunger(getHunger() + 1);
+                    r->setHunger(r->getHunger() + 1);
             }
         }
     }
