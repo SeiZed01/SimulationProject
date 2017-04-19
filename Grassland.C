@@ -77,6 +77,14 @@ void Grassland::addAnimals(int xWolf, int yRabbits){ //creates initial animals
       
 }*/
 
+void Grassland::growGrass(){
+	for(int i = 0; i < 512; i++){
+		for(int j = 0; j < 512; j++){
+			if(cell[i][j].lastEaten < 10) cell[i][j].lastEaten++;
+		}
+	}
+}
+
 void Grassland::eatGrass(int x, int y, Animal* r){ //function takes in coordinates x,y and rabbit, eats grass at location
     if(r->getID() == 1){ // This is for Lazy Rabbit
         for(int i = max(0, x-5); i <= min(x+5, 511);i++){
