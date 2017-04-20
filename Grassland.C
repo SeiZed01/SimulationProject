@@ -89,13 +89,15 @@ void Grassland::addAnimals(int xWolf, int yRabbits){ //creates initial animals
 }*/
 
 void Grassland::eatGrass(int x, int y, Animal* r){ //function takes in coordinates x,y and rabbit, eats grass at location
+    bool eat1 = false;
     if(r->getID() == 1){ // This is for Lazy Rabbit
         for(int i = max(0, x-5); i <= min(x+5, 511);i++){
-            if(r->getHunger() == 0) //if rabbit is not hungry, function ends
+            if(eat1 == 1) //if rabbit is not hungry, function ends
                 break;
             for(int j = max(0, y-5); j<= min(j+5, 511);j++){
                 if(i != x || j != y){ //checks if grass is available to be eaten
                     if(cell[i][j].lastEaten == 10){
+                        eat1 = true;
                         cell[i][j].a = r;
                         cell[i][j].lastEaten = 0;
                         cell[i][j].a->x = i;
@@ -110,13 +112,15 @@ void Grassland::eatGrass(int x, int y, Animal* r){ //function takes in coordinat
             }
         }
     }
+    bool eat2 = false;
     if(r->getID() == 2){ // This is For Active Rabbit
         for(int i = max(0, x-10); i<= min(x+10, 511);i++){
-            if(r->getHunger() == 0) //if rabbit is not hungry, function ends
+            if(eat2 == 1) //if rabbit is not hungry, function ends
                 break;
             for(int j = max(0, y-10); j<=min(y+10, 511);j++){
                 if(i != x || j != y){ //checks if grass is available to be eaten
                     if(cell[i][j].lastEaten == 10){
+                        eat2 = true;
                         cell[i][j].a = r;
                         cell[i][j].lastEaten = 0;
                         cell[i][j].a->x = i;
