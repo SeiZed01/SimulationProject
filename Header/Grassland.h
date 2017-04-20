@@ -30,12 +30,13 @@ class Grassland : public World{ //grassland class inherits from the world class
         void eatGrass(int x, int y, Animal*);
         void growGrass(); // Grow grass each cell daily helper function
         virtual void Run(){
-            if(getDay() <= 10000){
-                if(getDay() == reproduceDay){
-                    cout << "Reproduction day!" << endl;
-                    reproduceDay = reproduceDay + (rand() % 100 + 400);
+            if(getDay() == reproduceDay){
+                cout << "Reproduction day!" << endl;
+                reproduceDay = reproduceDay + (rand() % 100 + 400);
                     
-                }
+            }
+            if(getDay() <= 10000){
+                
                 cout << "In Grassland " << getDay() << endl;
                 setDay(getDay() + 450);
                 q->push(this);
