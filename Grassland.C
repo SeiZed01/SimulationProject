@@ -77,7 +77,7 @@ void Grassland::addAnimals(int xWolf, int yRabbits){ //creates initial animals
     for(int i = max(0, x-16); i <= min(x+16, 511);i++){
         if(found == 1)
             break;
-        for(int j = max(0, y-16);j<=min(j+16,511)j++){
+        for(int j = max(0, y-16);j<=min(j+16,511);j++){
             if(cell[i][j].a == NULL){
                 found = true;
                 cell[i][j].a = r;
