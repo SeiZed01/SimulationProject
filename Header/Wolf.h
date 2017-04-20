@@ -40,3 +40,16 @@ class Wolf : public Animal{ //wolf inherits from Animal
                         }
                         else{
                             setHunger(getHunger() + 1);
+ hold->roam(x, y, this);
+                            }
+                        q->push(this);
+        
+                }*/
+                   q->push(this);
+                }
+            }
+            cout << endl;
+        }
+        ~Wolf(){}
+};
+#endif
