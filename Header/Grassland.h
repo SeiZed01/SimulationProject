@@ -4,6 +4,7 @@
 #include "World.h"
 #include "Cells.h"
 #include <iostream>
+#include <stdlib.h>
 #include <vector>
 class Animal;
 using namespace std;
@@ -13,6 +14,8 @@ class Grassland : public World{ //grassland class inherits from the world class
     public:
         int wCount = 0; // Wolf Counter
         int rCount = 0; // Rabbit Counter
+        int reproduceDay = rand() % 100 + 400;
+    
         //void roam(int x, int y, Animal*); // Wolf roams if cant find food.
         Cells **cell; //pointer to create two dimensional array
         Grassland(int day, priority_queue<World*, vector<World*>, compareItem >* q1): World(day), q(q1){
@@ -28,6 +31,11 @@ class Grassland : public World{ //grassland class inherits from the world class
         void growGrass(); // Grow grass each cell daily helper function
         virtual void Run(){
             if(getDay() <= 10000){
+                if(getDay() == reproduceDay){
+                    cout << "Reproduction day!" << endl;
+                    reproduceDay = reproduceDay + (rand() % 100 + 400);
+                    
+                }
                 cout << "In Grassland " << getDay() << endl;
                 setDay(getDay() + 450);
                 q->push(this);
