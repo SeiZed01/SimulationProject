@@ -142,7 +142,7 @@ void Grassland::eatGrass(int x, int y, Animal* r){ //function takes in coordinat
             }
         for(int j = max(0, y-32); j <= min(j+32, 511);j++){
             if(i!= x || j!= y){ // checks boundaries
-                if(hold->cell[i][j].a->getID() == 2 || hold->cell[i][j].a->getID() == 1){
+                if(cell[i][j].a->getID() == 2 || cell[i][j].a->getID() == 1){
                     test = true;
                     cell[i][j].a = r;
                     cell[i][j].a->x = i;
