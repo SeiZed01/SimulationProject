@@ -22,7 +22,7 @@ class Wolf : public Animal{ //wolf inherits from Animal
                     setDay(getDay() + 4);
                     if(getHunger() >= 0){
                         hold->eatRabbit(x, y, this);
-                        hold->setHunger(0);
+                        setHunger(0);
                         q->push(this);
                     }
                    // q->push(this);
