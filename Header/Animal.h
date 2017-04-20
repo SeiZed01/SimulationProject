@@ -19,7 +19,7 @@ class Animal : public World{ //animal class inherits from world
         virtual void Run(){} // Implement death and hunger and etc in Run Func.
         //virtual void* Eat(); // Find something to eat within certain parameter then delete pointer. 
        // virtual void doublePopulation();
-        virtual ~Animal(){delete this;} //destructor
+        virtual ~Animal(){} //destructor
 };
 
 #endif
