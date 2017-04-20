@@ -156,7 +156,7 @@ void Grassland::eatGrass(int x, int y, Animal* r){ //function takes in coordinat
             }
         }
     }
-    if(bool == false){ // If can't find food, roam with function from above.
+    if(test == 0){ // If can't find food, roam with function from above.
         roam(x, y, r);
     }
 }*/
